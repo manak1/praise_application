@@ -23,12 +23,15 @@ class ToDo extends React.Component {
       ToDo: ToDo,
       max_id: id + 1
     });
+
+    console.log(this.state.ToDo)
   }
   
   handleRemove(e){
     let cut = this.state.ToDo;
     let id = Number( e.currentTarget.getAttribute('data-id'));
     let ToDo = cut.filter( i => i.id !== id);
+
     
     this.setState({
       ToDo: ToDo

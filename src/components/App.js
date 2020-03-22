@@ -8,21 +8,23 @@ class App extends React.Component {
     let user_array = [
       {
         name: "Ryuto_Shirakawa",
-        like_point: 100,
-        liked_point: 0,
-        img: ""
+        like_point: 120,
+        liked_point: 12223320,
+        img:  "https://pbs.twimg.com/profile_images/1197045010786480128/8GC1D9og_400x400.jpg"
       },
       {
         name: "Manaki_Ikeda",
         like_point: 100,
         liked_point: 0,
-        img: ""
+        img:  "https://pbs.twimg.com/profile_images/1197045010786480128/8GC1D9og_400x400.jpg"
+        
       },
       {
         name: "Daichi_Nakashizu",
         like_point: 100,
         liked_point: 0,
-        img: ""
+        img:  "https://pbs.twimg.com/profile_images/1197045010786480128/8GC1D9og_400x400.jpg"
+
       }
     ];
     let setjson = JSON.stringify(user_array);
@@ -34,14 +36,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      user_info: localStorage.getItem("user_info")
+      user_info: JSON.parse(localStorage.getItem("user_info")),
+      selected:0,
     };
+
   }
 
   render() {
     return (
       <div className="App">
-        <Header user_info={this.state.user_info} />
+        <Header name={this.state.user_info[this.state.selected].name}
+          likePoint={this.state.user_info[this.state.selected].like_point}
+          likedPoint={this.state.user_info[this.state.selected].liked_point}
+          img={this.state.user_info[this.state.selected].img}
+          userInfos= {this.state.user_info}
+        />
         <ToDo />
       </div>
     );
